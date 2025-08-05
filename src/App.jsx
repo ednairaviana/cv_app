@@ -1,3 +1,4 @@
+import "./css/reset.css";
 import Inner from "./components/Inner";
 
 function App() {
