@@ -5,8 +5,53 @@
   border-bottom-right-radius: 1rem;
 
   padding: var(--space-m);
+  padding-top: var(--space-l);
 }
 
-form {
+.main-form_wrapper form,
+.main-form__tab,
+.main-form__fieldset-items {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-l);
   height: 100%;
+}
+
+.main-form_wrapper fieldset legend {
+  margin-bottom: 1rem;
+}
+
+.main-form__fieldset-items {
+  gap: var(--space-s);
+}
+
+.main-form_wrapper .field-wrapper {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.main-form_wrapper .field-wrapper label {
+  position: absolute;
+  font-size: var(--text-s);
+  pointer-events: none;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+
+  transition: all 0.2s ease-in;
+}
+
+.main-form_wrapper .field-wrapper input {
+  border: 1px solid var(--color-neutral-600);
+  font-size: var(--text-s);
+  padding: 0.5rem 1rem;
+  padding-top: 2rem;
+  border-radius: 0.4rem;
+}
+
+.main-form_wrapper .field-wrapper:has(input:focus) label {
+  font-size: 1rem;
+  top: 0.5rem;
+  transform: unset;
 }
