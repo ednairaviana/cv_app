@@ -28,3 +28,32 @@ body {
   background-color: var(--color-neutral-200);
   color: var(--color-neutral-900);
 }
+
+section {
+  padding: var(--space-l);
+  min-height: 100vh;
+  display: flex;
+}
+
+.container {
+  flex-grow: 1;
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex--column {
+  flex-direction: column;
+}
+
+.gap--m {
+  gap: var(--space-m);
+}
+
+.gap--l {
+  gap: var(--space-l);
+}

@@ -4,11 +4,16 @@ import Cv from "./Cv";
 
 function Inner() {
   return (
-    <>
-      <Header></Header>
-      <Form></Form>
-      <Cv></Cv>
-    </>
+    <section>
+      <div className="container inner-grid">
+        <div className="flex flex--column">
+          <Header></Header>
+          <Form></Form>
+        </div>
+
+        <Cv></Cv>
+      </div>
+    </section>
   );
 }
 

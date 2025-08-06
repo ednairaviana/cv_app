@@ -28,26 +28,32 @@ function FieldWrapper({ id, type, label }) {
 
 function Form() {
   return (
-    <form>
-      <div>
-        <fieldset>
-          <legend>General</legend>
-          <FieldWrapper id={"first_name"} type={"text"} label={"First Name"} />
-          <FieldWrapper id={"last_name"} type={"text"} label={"Last Name"} />
-          <FieldWrapper id={"summary"} type={"textarea"} label={"Summary"} />
-        </fieldset>
-        <fieldset>
-          <legend>Contact Information</legend>
-          <FieldWrapper id={"email"} type={"email"} label={"Email"} />
-          <FieldWrapper id={"phone"} type={"text"} label={"Phone"} />
-        </fieldset>
-        <fieldset>
-          <legend>Social Media</legend>
-          <FieldWrapper id={"linkedin"} type={"link"} label={"Linkedin"} />
-          <FieldWrapper id={"github"} type={"link"} label={"GitHub"} />
-        </fieldset>
-      </div>
-    </form>
+    <div className="main-form_wrapper">
+      <form>
+        <div>
+          <fieldset>
+            <legend>General</legend>
+            <FieldWrapper
+              id={"first_name"}
+              type={"text"}
+              label={"First Name"}
+            />
+            <FieldWrapper id={"last_name"} type={"text"} label={"Last Name"} />
+            <FieldWrapper id={"summary"} type={"textarea"} label={"Summary"} />
+          </fieldset>
+          <fieldset>
+            <legend>Contact Information</legend>
+            <FieldWrapper id={"email"} type={"email"} label={"Email"} />
+            <FieldWrapper id={"phone"} type={"text"} label={"Phone"} />
+          </fieldset>
+          <fieldset>
+            <legend>Social Media</legend>
+            <FieldWrapper id={"linkedin"} type={"link"} label={"Linkedin"} />
+            <FieldWrapper id={"github"} type={"link"} label={"GitHub"} />
+          </fieldset>
+        </div>
+      </form>
+    </div>
   );
 }
 

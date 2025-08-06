@@ -1,19 +1,16 @@
 function Header() {
   return (
     <header>
-      <nav>
+      <nav className="main-nav">
         <ul>
-          <li>
-            <button>General</button>
+          <li className="active">
+            <button className="btn__set active">General</button>
           </li>
           <li>
-            <button>Education</button>
+            <button className="btn__set">Professional</button>
           </li>
           <li>
-            <button>Professional</button>
-          </li>
-          <li>
-            <button>Styling</button>
+            <button className="btn__set">Styling</button>
           </li>
         </ul>
       </nav>

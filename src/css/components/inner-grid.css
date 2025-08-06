@@ -1,0 +1,10 @@
+.inner-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-l);
+  min-height: 100%;
+}
+
+header {
+  width: 100%;
+}

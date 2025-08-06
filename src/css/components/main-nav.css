@@ -1,0 +1,22 @@
+.main-nav ul {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  background-color: var(--color-neutral-300);
+  border-top-right-radius: 1rem;
+  border-top-left-radius: 1rem;
+}
+
+.main-nav ul .btn__set {
+  width: 100%;
+  padding: var(--space-m);
+  text-align: center;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.main-nav ul .btn__set.active {
+  background-color: white;
+  border-top-right-radius: 1rem;
+  border-top-left-radius: 1rem;
+}
