@@ -1,0 +1,12 @@
+.main-form_wrapper {
+  height: 100%;
+  background-color: white;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+
+  padding: var(--space-m);
+}
+
+form {
+  height: 100%;
+}
