@@ -50,7 +50,8 @@
   border-radius: 0.4rem;
 }
 
-.main-form_wrapper .field-wrapper:has(input:focus) label {
+.main-form_wrapper .field-wrapper:has(input:focus) label,
+.main-form_wrapper .field-wrapper.input-filled label {
   font-size: 1rem;
   top: 0.5rem;
   transform: unset;

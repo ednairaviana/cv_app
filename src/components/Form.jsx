@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 function Radio({ radioInfo }) {
   return (
     <div>
@@ -18,10 +20,16 @@ function Radio({ radioInfo }) {
 }
 
 function FieldWrapper({ id, type, label }) {
+  const [isFilled, setIsFilled] = useState(false);
+
+  function handleInputChange(e) {
+    setIsFilled(Boolean(e.target.value));
+  }
+
   return (
-    <div className="field-wrapper">
+    <div className={`field-wrapper ${isFilled ? "input-filled" : ""}`}>
       <label htmlFor={id}>{label}</label>
-      <input id={id} name={id} type={type} />
+      <input id={id} name={id} type={type} onChange={handleInputChange} />
     </div>
   );
 }
