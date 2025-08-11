@@ -1,0 +1,54 @@
+.cv-model--1 {
+  height: 100%;
+  max-height: calc(100vh - var(--space-l) * 2);
+  aspect-ratio: 210 / 297;
+  background-color: white;
+
+  padding: var(--space-m);
+  border-radius: 1rem;
+}
+
+.cv-model--1 .header {
+  margin-bottom: var(--space-l);
+}
+
+.cv-model--1 .title {
+  font-size: var(--text-l);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.cv-model--1 .subtitle {
+  text-transform: capitalize;
+  color: var(--color-neutral-700);
+  font-size: var(--text-m);
+  font-weight: 500;
+}
+
+.cv-model--1 .grid--2 {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+}
+
+.cv-model--1 .summary {
+  color: var(--color-neutral-600);
+  font-size: var(--text-xs);
+}
+
+.cv-model--1 .info-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  justify-content: space-between;
+}
+
+.cv-model--1 .info-list li {
+  font-size: var(--text-s);
+}
+
+.cv-model--1 .info-list .icon--before {
+  --icon-var: var(--phone__dark);
+  --icon-gap: var(--space-xs);
+  --icon-size: var(--text-s);
+}

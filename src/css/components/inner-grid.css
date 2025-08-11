@@ -1,6 +1,6 @@
 .inner-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr auto;
   gap: var(--space-l);
   min-height: 100%;
 }
