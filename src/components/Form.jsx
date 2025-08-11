@@ -40,7 +40,7 @@ function Form() {
       <form>
         <div className="main-form__tab">
           <fieldset>
-            <legend>General</legend>
+            <legend>Personal</legend>
             <div className="main-form__fieldset-items">
               <FieldWrapper
                 id={"first_name"}
