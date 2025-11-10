@@ -1,18 +1,37 @@
+import { useState } from "react";
+
+function NavButtons() {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const btnTitles = ["General", "Professional", "Education"];
+
+  function handleToggleActiveIndex(index) {
+    if (activeIndex !== index) {
+      setActiveIndex(index);
+    }
+  }
+
+  return (
+    <ul>
+      {btnTitles.map((title, index) => (
+        <li key={index}>
+          <button
+            className={`btn__set ${activeIndex === index ? "active" : ""}`}
+            onClick={() => handleToggleActiveIndex(index)}
+          >
+            {title}
+          </button>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
 function Header() {
   return (
     <header>
       <nav className="main-nav">
-        <ul>
-          <li className="active">
-            <button className="btn__set active">General</button>
-          </li>
-          <li>
-            <button className="btn__set">Professional</button>
-          </li>
-          <li>
-            <button className="btn__set">Styling</button>
-          </li>
-        </ul>
+        <NavButtons />
       </nav>
     </header>
   );
