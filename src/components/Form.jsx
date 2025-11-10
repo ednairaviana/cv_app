@@ -19,7 +19,7 @@ function Radio({ radioInfo }) {
   );
 }
 
-function FieldWrapper({ id, type, label }) {
+function FieldWrapper(props) {
   const [isFilled, setIsFilled] = useState(false);
 
   function handleInputChange(e) {
@@ -28,52 +28,93 @@ function FieldWrapper({ id, type, label }) {
 
   return (
     <div className={`field-wrapper ${isFilled ? "input-filled" : ""}`}>
-      <label htmlFor={id}>{label}</label>
-      <input id={id} name={id} type={type} onChange={handleInputChange} />
+      <label htmlFor={props.id}>{props.label}</label>
+      <input
+        id={props.id}
+        name={props.id}
+        type={props.type}
+        onChange={handleInputChange}
+      />
+    </div>
+  );
+}
+
+function MainTab() {
+  return (
+    <div className="main-form__tab">
+      <fieldset></fieldset>
     </div>
   );
 }
 
 function Form() {
+  const tabs = [
+    {
+      title: "General",
+      fieldsets: [
+        {
+          legend: "Personal",
+          fields: [
+            { id: "first_name", label: "First Name", type: "text" },
+            { id: "last_name", label: "Last Name", type: "text" },
+            { id: "summary", label: "Summary", type: "textarea" },
+          ],
+        },
+        {
+          legend: "Contact Media",
+          fields: [
+            { id: "email", label: "Email", type: "email" },
+            { id: "phone", label: "Phone", type: "phone" },
+            { id: "address", label: "Address", type: "address" },
+          ],
+        },
+        {
+          legend: "Social Media",
+          fields: [
+            { id: "website", label: "Website", type: "text" },
+            { id: "github", label: "Github", type: "github" },
+          ],
+        },
+      ],
+    },
+    {
+      title: "Career",
+      fieldsets: [
+        {
+          legend: "Education",
+          fields: [],
+        },
+        {
+          legend: "Professional",
+          fields: [],
+        },
+      ],
+    },
+  ];
+
   return (
     <div className="main-form_wrapper">
       <form>
-        <div className="main-form__tab">
-          <fieldset>
-            <legend>Personal</legend>
-            <div className="main-form__fieldset-items">
-              <FieldWrapper
-                id={"first_name"}
-                type={"text"}
-                label={"First Name"}
-              />
-              <FieldWrapper
-                id={"last_name"}
-                type={"text"}
-                label={"Last Name"}
-              />
-              <FieldWrapper
-                id={"summary"}
-                type={"textarea"}
-                label={"Summary"}
-              />
-            </div>
-          </fieldset>
-          <fieldset>
-            <legend>Contact Information</legend>
-            <div className="main-form__fieldset-items">
-              <FieldWrapper id={"email"} type={"email"} label={"Email"} />
-              <FieldWrapper id={"phone"} type={"text"} label={"Phone"} />
-            </div>
-          </fieldset>
-          <fieldset>
-            <legend>Social Media</legend>
-            <div className="main-form__fieldset-items">
-              <FieldWrapper id={"linkedin"} type={"link"} label={"Linkedin"} />
-              <FieldWrapper id={"github"} type={"link"} label={"GitHub"} />
-            </div>
-          </fieldset>
-        </div>
+        {tabs.map((tab, index) => (
+          <div
+            className={`main-form__tab ${index === 0 ? "active" : "active"}`}
+          >
+            {tab.fieldsets.map((fieldset) => (
+              <fieldset>
+                <legend>{fieldset.legend}</legend>
+                <div className="main-form__fieldset-items">
+                  {fieldset.fields.map((field) => (
+                    <FieldWrapper
+                      id={field.id}
+                      type={field.type}
+                      label={field.label}
+                    />
+                  ))}
+                </div>
+              </fieldset>
+            ))}
+          </div>
+        ))}
       </form>
     </div>
   );
