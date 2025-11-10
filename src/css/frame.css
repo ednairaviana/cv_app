@@ -24,6 +24,7 @@
 
 body {
   font-size: var(--text-m);
+  font-family: "Inter", sans-serif;
 
   background-color: var(--color-neutral-200);
   color: var(--color-neutral-900);

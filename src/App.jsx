@@ -1,4 +1,5 @@
 import "./css/reset.css";
+import "./css/fonts.css";
 import "./css/frame.css";
 import "./css/components/icon.css";
 import "./css/components/inner-grid.css";
