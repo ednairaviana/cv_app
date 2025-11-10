@@ -1,5 +1,7 @@
 .main-form_wrapper {
   height: 100%;
+  min-height: fit-content;
+  overflow: hidden;
   background-color: white;
   border-bottom-left-radius: 1rem;
   border-bottom-right-radius: 1rem;
@@ -15,6 +17,16 @@
   flex-direction: column;
   gap: var(--space-l);
   height: 100%;
+  max-height: 100%;
+}
+
+.main-form__tab {
+  min-height: fit-content;
+  overflow-y: auto;
+}
+
+.main-form__tab:not(.active) {
+  display: none;
 }
 
 .main-form_wrapper fieldset legend {
