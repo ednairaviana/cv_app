@@ -47,13 +47,16 @@ function MainTab() {
   );
 }
 
-function Form({ tabs }) {
+function Form({ tabs, useActiveTab }) {
+  const activeTab = useActiveTab.activeTab;
+
   return (
     <div className="main-form_wrapper">
       <form>
         {tabs.map((tab, index) => (
           <div
-            className={`main-form__tab ${index === 0 ? "active" : "active"}`}
+            key={index}
+            className={`main-form__tab ${activeTab === index ? "active" : ""}`}
           >
             {tab.fieldsets.map((fieldset) => (
               <fieldset>

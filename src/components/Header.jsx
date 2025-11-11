@@ -1,11 +1,10 @@
-import { useState } from "react";
+function Header({ tabs, useActiveTab }) {
+  const activeTab = useActiveTab.activeTab;
+  const setActiveTab = useActiveTab.setActiveTab;
 
-function Header({ tabs }) {
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  function handleToggleActiveIndex(index) {
-    if (activeIndex !== index) {
-      setActiveIndex(index);
+  function handleToggleActiveIndex(tab) {
+    if (activeTab !== tab) {
+      setActiveTab(tab);
     }
   }
 
@@ -16,7 +15,7 @@ function Header({ tabs }) {
           {tabs.map((tab, index) => (
             <li key={index}>
               <button
-                className={`btn__set ${activeIndex === index ? "active" : ""}`}
+                className={`btn__set ${activeTab === index ? "active" : ""}`}
                 onClick={() => handleToggleActiveIndex(index)}
               >
                 {tab.title}
