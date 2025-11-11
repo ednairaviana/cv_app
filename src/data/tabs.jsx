@@ -28,27 +28,44 @@ const tabs = [
     ],
   },
   {
-    title: "Academic",
+    title: "Career",
     fieldsets: [
       {
-        legend: "Education",
-        fields: [],
+        legend: "Professional Experience",
+        fields: [
+          { id: "job_title", label: "Job Title", type: "text" },
+          { id: "company", label: "Company", type: "text" },
+          { id: "start_date", label: "Start Date", type: "month" },
+          { id: "end_date", label: "End Date", type: "month" },
+          { id: "duration", label: "Duration", type: "text" },
+          { id: "location", label: "Location", type: "text" },
+          { id: "description", label: "Description", type: "textarea" },
+        ],
+        cloneable: true,
       },
       {
-        legend: "Professional",
-        fields: [],
+        legend: "Education",
+        fields: [
+          { id: "school", label: "School / University", type: "text" },
+          { id: "degree", label: "Degree / Course", type: "text" },
+          { id: "start_date", label: "Start Date", type: "month" },
+          { id: "end_date", label: "End Date", type: "month" },
+          { id: "location", label: "Location", type: "text" },
+          { id: "description", label: "Description", type: "textarea" },
+        ],
+        cloneable: true,
       },
     ],
   },
   {
-    title: "Experience",
+    title: "Advanced",
     fieldsets: [
       {
-        legend: "Education",
+        legend: "Export",
         fields: [],
       },
       {
-        legend: "Professional",
+        legend: "Styling",
         fields: [],
       },
     ],
