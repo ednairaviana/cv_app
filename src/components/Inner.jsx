@@ -3,6 +3,7 @@ import Form from "./Form";
 import Cv from "./Cv";
 import tabs from "../data/tabs";
 import useActiveTab from "../data/useActiveTab";
+import cvData from "../data/cvData";
 
 function Inner() {
   const activeTabState = useActiveTab();
@@ -14,7 +15,7 @@ function Inner() {
           <Header tabs={tabs} useActiveTab={activeTabState}></Header>
           <Form tabs={tabs} useActiveTab={activeTabState}></Form>
         </div>
-        <Cv></Cv>
+        <Cv cvData={cvData}></Cv>
       </div>
     </section>
   );

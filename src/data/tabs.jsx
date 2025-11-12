@@ -7,11 +7,12 @@ const tabs = [
         fields: [
           { id: "first_name", label: "First Name", type: "text" },
           { id: "last_name", label: "Last Name", type: "text" },
+          { id: "position", label: "Position", type: "text" },
           { id: "summary", label: "Summary", type: "textarea" },
         ],
       },
       {
-        legend: "Contact Media",
+        legend: "Contact",
         fields: [
           { id: "email", label: "Email", type: "email" },
           { id: "phone", label: "Phone", type: "phone" },

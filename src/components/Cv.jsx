@@ -1,28 +1,28 @@
-function Cv() {
+function Cv({ cvData }) {
+  const personal = cvData.general.personal;
+  const contact = cvData.general.contact;
+
   return (
     <div className="cv-model--1">
       <div className="header">
-        <h1 className="title">Mia Stone</h1>
-        <p className="subtitle">Art Director</p>
+        <h1 className="title">
+          {personal.first_name} {personal.last_name}
+        </h1>
+        <p className="subtitle">{personal.position}</p>
         <div className="summary">
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde
-            incidunt modi nisi, hic minima expedita, odio corporis esse
-            provident quos repellat possimus deleniti consequatur est amet,
-            error cumque itaque officiis!
-          </p>
+          <p>{personal.summary}</p>
         </div>
       </div>
 
       <ul className="info-list">
-        <li className="icon--before">
-          <span>mail@mail.com</span>
+        <li className="icon--before" dataIcon="email">
+          <span>{contact.email}</span>
         </li>
         <li className="icon--before">
-          <span>123 12345678</span>
+          <span>{contact.phone}</span>
         </li>
         <li className="icon--before">
-          <span>Location</span>
+          <span>{contact.location}</span>
         </li>
         <li className="icon--before">
           <span>website.com</span>
