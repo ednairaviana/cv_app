@@ -2,7 +2,7 @@ import Header from "./Header";
 import Form from "./Form";
 import Cv from "./Cv";
 import tabs from "../data/tabs";
-import useActiveTab from "../data/useActiveTab";
+import useActiveTab from "../hooks/useActiveTab";
 import cvData from "../data/cvData";
 
 function Inner() {
