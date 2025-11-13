@@ -3,13 +3,14 @@ const cvData = {
     personal: {
       first_name: "Ava",
       last_name: "Mendez",
+      position: "Art Director",
       summary:
         "Creative and detail-oriented art director with over 8 years of experience leading visual campaigns, brand storytelling, and design teams.",
     },
     contact: {
       email: "ava.mendez@email.com",
       phone: "+1 310 555 2873",
-      address: "123 Ocean Blvd, Santa Monica, CA",
+      location: "Santa Monica, CA",
     },
     social_media: {
       website: "https://avamendez.com",
