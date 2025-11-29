@@ -21,8 +21,8 @@ const cvData = {
   career: {
     professional_experience: [
       {
-        job_title: "Senior Art Director",
-        company: "Jelly Art Studio",
+        title: "Senior Art Director",
+        institution: "Jelly Art Studio",
         start_date: "2018-08",
         end_date: "Present",
         duration: "7 years",
@@ -33,8 +33,8 @@ const cvData = {
     ],
     education: [
       {
-        school: "University of California, Los Angeles (UCLA)",
-        degree: "Bachelor of Arts in Graphic Design",
+        title: "Bachelor of Arts in Graphic Design",
+        institution: "University of California, Los Angeles (UCLA)",
         start_date: "2010-09",
         end_date: "2014-06",
         location: "Los Angeles, CA",
