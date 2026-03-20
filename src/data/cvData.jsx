@@ -14,7 +14,9 @@ function buildCvStructure(tabs) {
     cvStructure[tab.id] = tab.fieldsets.reduce((tabStructure, fieldset) => {
       const fields = buildFields(fieldset.fields);
 
-      tabStructure[fieldset.id] = fieldset.cloneable ? [fields] : fields;
+      tabStructure[fieldset.id] = fieldset.cloneable
+        ? [{ id: crypto.randomUUID(), ...fields }]
+        : fields;
 
       return tabStructure;
     }, {});
