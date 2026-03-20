@@ -1,48 +1,26 @@
-const cvData = {
-  general: {
-    personal: {
-      first_name: "Ava",
-      last_name: "Mendez",
-      position: "Art Director",
-      summary:
-        "Creative and detail-oriented art director with over 8 years of experience leading visual campaigns, brand storytelling, and design teams.",
-    },
-    contact: {
-      email: "ava.mendez@email.com",
-      phone: "+1 310 555 2873",
-      location: "Santa Monica, CA",
-    },
-    social_media: {
-      website: "https://avamendez.com",
-      github: "https://github.com/avamendez",
-    },
-  },
+import tabs from "./tabs";
 
-  career: {
-    professional_experience: [
-      {
-        title: "Senior Art Director",
-        institution: "Jelly Art Studio",
-        start_date: "2018-08",
-        end_date: "Present",
-        duration: "7 years",
-        location: "Santa Monica, CA",
-        description:
-          "Lead creative strategy and visual direction for digital and print campaigns. Collaborated with cross-functional teams to deliver award-winning brand experiences for international clients.",
-      },
-    ],
-    education: [
-      {
-        title: "Bachelor of Arts in Graphic Design",
-        institution: "University of California, Los Angeles (UCLA)",
-        start_date: "2010-09",
-        end_date: "2014-06",
-        location: "Los Angeles, CA",
-        description:
-          "Focused on visual communication, typography, and brand design. Graduated with honors.",
-      },
-    ],
-  },
-};
+const cvData = buildCvStructure(tabs);
+
+function buildCvStructure(tabs) {
+  function buildFields(fields) {
+    return fields.reduce((acc, field) => {
+      acc[field.id] = "";
+      return acc;
+    }, {});
+  }
+
+  return tabs.reduce((cvStructure, tab) => {
+    cvStructure[tab.id] = tab.fieldsets.reduce((tabStructure, fieldset) => {
+      const fields = buildFields(fieldset.fields);
+
+      tabStructure[fieldset.id] = fieldset.cloneable ? [fields] : fields;
+
+      return tabStructure;
+    }, {});
+
+    return cvStructure;
+  }, {});
+}
 
 export default cvData;
