@@ -25,7 +25,7 @@ function Cv({ cvData }) {
           <span>{contact.phone}</span>
         </li>
         <li className="icon--before">
-          <span>{contact.location}</span>
+          <span>{contact.address}</span>
         </li>
         <li className="icon--before">
           <span>{social_media.website}</span>
