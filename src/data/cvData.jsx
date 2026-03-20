@@ -5,7 +5,7 @@ const cvData = buildCvStructure(tabs);
 function buildCvStructure(tabs) {
   function buildFields(fields) {
     return fields.reduce((acc, field) => {
-      acc[field.id] = "";
+      acc[field.id] = field.default_value;
       return acc;
     }, {});
   }
