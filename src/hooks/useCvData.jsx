@@ -12,6 +12,22 @@ function useCvData() {
     });
   }
 
+  function handleAddFieldsetClone(path) {
+    setCvData((prev) => {
+      const cvClone = structuredClone(prev);
+      const currentArray = path.reduce((acc, key) => acc?.[key], cvClone);
+
+      const newItem = {
+        id: crypto.randomUUID(),
+        fieldID: crypto.randomUUID(),
+        ...currentArray?.[0],
+      };
+
+      currentArray.push(newItem);
+      return cvClone;
+    });
+  }
+
   function setByPath(obj, keys, value) {
     let current = obj;
 
@@ -25,7 +41,7 @@ function useCvData() {
     });
   }
 
-  return { currentCvData, handleCvDataChange };
+  return { currentCvData, handleCvDataChange, handleAddFieldsetClone };
 }
 
 export default useCvData;

@@ -19,23 +19,19 @@ function Radio({ radioInfo }) {
   );
 }
 
-function Form({ tabs, useActiveTab, handleChangeFunction }) {
+function Form({ tabs, useActiveTab, cvState }) {
   const activeTab = useActiveTab.activeTab;
 
   return (
     <div className="main-form_wrapper">
       <form>
-        <Tabs
-          tabs={tabs}
-          activeTab={activeTab}
-          handleChangeFunction={handleChangeFunction}
-        ></Tabs>
+        <Tabs tabs={tabs} activeTab={activeTab} cvState={cvState}></Tabs>
       </form>
     </div>
   );
 }
 
-function Tabs({ tabs, activeTab, handleChangeFunction }) {
+function Tabs({ tabs, activeTab, cvState }) {
   return tabs.map((tab, index) => {
     return (
       <div
@@ -45,15 +41,48 @@ function Tabs({ tabs, activeTab, handleChangeFunction }) {
         <Fieldsets
           fieldsets={tab.fieldsets}
           tabId={tab.id}
-          handleChangeFunction={handleChangeFunction}
+          cvState={cvState}
         ></Fieldsets>
       </div>
     );
   });
 }
 
-function Fieldsets({ fieldsets, tabId, handleChangeFunction }) {
+function Fieldsets({ fieldsets, tabId, cvState }) {
   return fieldsets.map((fieldset) => {
+    if (fieldset.cloneable) {
+      const cvDataClones = cvState.currentCvData[tabId][fieldset.id];
+      return (
+        <fieldset key={fieldset.id}>
+          <legend>{fieldset.legend}</legend>
+          <div className="main-form__fieldset-items cloneable">
+            {cvDataClones.map((clone) => {
+              return fieldset.fields.map((field) => (
+                <FieldWrapper
+                  key={clone.fieldId}
+                  id={field.id}
+                  type={field.type}
+                  label={field.label}
+                  cvPath={[tabId, fieldset.id, field.id]}
+                  cvState={cvState}
+                />
+              ));
+            })}
+
+            <button type="button">Remove</button>
+          </div>
+          <button
+            type="button"
+            onClick={() => {
+              cvState.handleAddFieldsetClone([tabId, fieldset.id]);
+            }}
+          >
+            Add
+          </button>
+        </fieldset>
+      );
+    }
+
     return (
       <fieldset key={fieldset.id}>
         <legend>{fieldset.legend}</legend>
@@ -65,7 +94,7 @@ function Fieldsets({ fieldsets, tabId, handleChangeFunction }) {
               type={field.type}
               label={field.label}
               cvPath={[tabId, fieldset.id, field.id]}
-              onCvChange={handleChangeFunction}
+              cvState={cvState}
             />
           ))}
         </div>
@@ -79,7 +108,7 @@ function FieldWrapper(props) {
 
   function handleInputChange(e) {
     setIsFilled(Boolean(e.target.value));
-    props.onCvChange(props.cvPath, e.target.value);
+    props.cvState.handleCvDataChange(props.cvPath, e.target.value);
   }
 
   return (

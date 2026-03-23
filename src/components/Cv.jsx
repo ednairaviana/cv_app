@@ -1,4 +1,6 @@
 function Cv({ cvData }) {
+  console.log(cvData);
+
   const personal = cvData.general.personal;
   const contact = cvData.general.contact;
   const social_media = cvData.general.social_media;
@@ -49,7 +51,7 @@ function Cv({ cvData }) {
 function Dividers({ all_tabs }) {
   return all_tabs.map((tab) => {
     return (
-      <div className="cv-divider" key={crypto.randomUUID()}>
+      <div className="cv-divider" key={tab.id}>
         <div className="cv-divider__header">
           <h3 className="cv-divider__title">{tab.title}</h3>
           <h4 className="cv-divider__sub-title">{tab.institution}</h4>

@@ -17,7 +17,7 @@ function Inner() {
           <Form
             tabs={tabs}
             useActiveTab={activeTabState}
-            handleChangeFunction={currentCvState.handleCvDataChange}
+            cvState={currentCvState}
           ></Form>
         </div>
         <Cv cvData={currentCvState.currentCvData}></Cv>
