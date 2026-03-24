@@ -55,7 +55,7 @@ function Fieldsets({ fieldsets, tabId, cvState }) {
       return (
         <fieldset key={`${tabId}-${fieldset.id}`}>
           <legend>{fieldset.legend}</legend>
-          <div className="">
+          <div className="main-form__clone-div">
             {cvDataClones.map((clone) => {
               return (
                 <div
@@ -64,6 +64,7 @@ function Fieldsets({ fieldsets, tabId, cvState }) {
                 >
                   {fieldset.fields.map((field) => (
                     <FieldWrapper
+                      key={`${clone.id}-${field.id}`}
                       id={field.id}
                       type={field.type}
                       label={field.label}
@@ -77,6 +78,7 @@ function Fieldsets({ fieldsets, tabId, cvState }) {
                   ))}
                   <button
                     type="button"
+                    className="btn-remove"
                     onClick={() => {
                       cvState.handleRemoveFieldsetClone(
                         [tabId, fieldset.id],
@@ -92,11 +94,12 @@ function Fieldsets({ fieldsets, tabId, cvState }) {
           </div>
           <button
             type="button"
+            className="btn-add"
             onClick={() => {
               cvState.handleAddFieldsetClone([tabId, fieldset.id]);
             }}
           >
-            Add
+            Add {fieldset.legend}
           </button>
         </fieldset>
       );

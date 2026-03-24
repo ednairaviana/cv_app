@@ -74,3 +74,25 @@
   top: 0.5rem;
   transform: unset;
 }
+
+.main-form__clone-div {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.btn-remove {
+  background-color: red;
+  padding: 0.8rem 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.btn-add {
+  margin-top: 2rem;
+  border: 1px solid var(--color-neutral-600);
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  width: 100%;
+  cursor: pointer;
+}

@@ -40,6 +40,7 @@ function useCvData() {
 
       const newItem = {
         id: crypto.randomUUID(),
+        title: "Untitled",
       };
 
       currentArray.push(newItem);
