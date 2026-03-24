@@ -72,6 +72,7 @@ function Fieldsets({ fieldsets, tabId, cvState }) {
                       isClone={true}
                       fieldId={field.id}
                       cloneId={clone.id}
+                      value={clone[field.id]}
                     />
                   ))}
                   <button
@@ -113,6 +114,7 @@ function Fieldsets({ fieldsets, tabId, cvState }) {
               label={field.label}
               cvPath={[tabId, fieldset.id, field.id]}
               cvState={cvState}
+              value={cvState.currentCvData[tabId][fieldset.id][field.id]}
             />
           ))}
         </div>
@@ -122,10 +124,12 @@ function Fieldsets({ fieldsets, tabId, cvState }) {
 }
 
 function FieldWrapper(props) {
-  const [isFilled, setIsFilled] = useState(false);
+  const [isFilled, setIsFilled] = useState(Boolean(props.value));
+  const [value, setValue] = useState(props.value);
 
   function handleInputChange(e) {
     setIsFilled(Boolean(e.target.value));
+    setValue(e.target.value);
 
     if (props.isClone) {
       props.cvState.handleCloneDataChange(
@@ -149,6 +153,7 @@ function FieldWrapper(props) {
         onChange={(e) => {
           handleInputChange(e);
         }}
+        value={value}
       />
     </div>
   );
