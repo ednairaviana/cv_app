@@ -53,23 +53,41 @@ function Fieldsets({ fieldsets, tabId, cvState }) {
     if (fieldset.cloneable) {
       const cvDataClones = cvState.currentCvData[tabId][fieldset.id];
       return (
-        <fieldset key={fieldset.id}>
+        <fieldset key={`${tabId}-${fieldset.id}`}>
           <legend>{fieldset.legend}</legend>
-          <div className="main-form__fieldset-items cloneable">
+          <div className="">
             {cvDataClones.map((clone) => {
-              return fieldset.fields.map((field) => (
-                <FieldWrapper
-                  key={clone.fieldId}
-                  id={field.id}
-                  type={field.type}
-                  label={field.label}
-                  cvPath={[tabId, fieldset.id, field.id]}
-                  cvState={cvState}
-                />
-              ));
+              return (
+                <div
+                  key={clone.id}
+                  className="main-form__fieldset-items cloneable"
+                >
+                  {fieldset.fields.map((field) => (
+                    <FieldWrapper
+                      id={field.id}
+                      type={field.type}
+                      label={field.label}
+                      cvPath={[tabId, fieldset.id]}
+                      cvState={cvState}
+                      isClone={true}
+                      fieldId={field.id}
+                      cloneId={clone.id}
+                    />
+                  ))}
+                  <button
+                    type="button"
+                    onClick={() => {
+                      cvState.handleRemoveFieldsetClone(
+                        [tabId, fieldset.id],
+                        clone.id,
+                      );
+                    }}
+                  >
+                    Remove
+                  </button>
+                </div>
+              );
             })}
-
-            <button type="button">Remove</button>
           </div>
           <button
             type="button"
@@ -108,7 +126,17 @@ function FieldWrapper(props) {
 
   function handleInputChange(e) {
     setIsFilled(Boolean(e.target.value));
-    props.cvState.handleCvDataChange(props.cvPath, e.target.value);
+
+    if (props.isClone) {
+      props.cvState.handleCloneDataChange(
+        props.cvPath,
+        props.cloneId,
+        props.fieldId,
+        e.target.value,
+      );
+    } else {
+      props.cvState.handleCvDataChange(props.cvPath, e.target.value);
+    }
   }
 
   return (

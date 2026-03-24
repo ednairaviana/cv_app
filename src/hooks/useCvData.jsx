@@ -12,6 +12,27 @@ function useCvData() {
     });
   }
 
+  function handleCloneDataChange(path, cloneId, fieldId, value) {
+    setCvData((prev) => {
+      const cvClone = structuredClone(prev);
+      const currentArray = path.reduce((acc, key) => acc?.[key], cvClone);
+      const item = currentArray.find((item) => item.id === cloneId);
+      item[fieldId] = value;
+
+      return cvClone;
+    });
+  }
+
+  function handleRemoveFieldsetClone(path, id) {
+    setCvData((prev) => {
+      const cvClone = structuredClone(prev);
+      const currentArray = path.reduce((acc, key) => acc?.[key], cvClone);
+      const filtered = currentArray.filter((item) => item.id !== id);
+      setByPath(cvClone, path, filtered);
+      return cvClone;
+    });
+  }
+
   function handleAddFieldsetClone(path) {
     setCvData((prev) => {
       const cvClone = structuredClone(prev);
@@ -19,8 +40,6 @@ function useCvData() {
 
       const newItem = {
         id: crypto.randomUUID(),
-        fieldID: crypto.randomUUID(),
-        ...currentArray?.[0],
       };
 
       currentArray.push(newItem);
@@ -41,7 +60,13 @@ function useCvData() {
     });
   }
 
-  return { currentCvData, handleCvDataChange, handleAddFieldsetClone };
+  return {
+    currentCvData,
+    handleCvDataChange,
+    handleAddFieldsetClone,
+    handleRemoveFieldsetClone,
+    handleCloneDataChange,
+  };
 }
 
 export default useCvData;

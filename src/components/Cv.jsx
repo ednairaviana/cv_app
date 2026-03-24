@@ -1,6 +1,4 @@
 function Cv({ cvData }) {
-  console.log(cvData);
-
   const personal = cvData.general.personal;
   const contact = cvData.general.contact;
   const social_media = cvData.general.social_media;

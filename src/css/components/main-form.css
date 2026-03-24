@@ -33,6 +33,12 @@
   margin-bottom: 1rem;
 }
 
+.main-form__fieldset-items.cloneable {
+  border: 1px solid var(--color-neutral-600);
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
 .main-form__fieldset-items {
   gap: var(--space-s);
 }
