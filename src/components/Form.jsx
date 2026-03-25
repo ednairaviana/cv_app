@@ -105,6 +105,8 @@ function FieldsetCloneable({ fieldset, tabId, cvState }) {
                 <span>{clone.title}</span>
                 <button
                   dataIcon="toggle"
+                  className="toggle-button icon--before"
+                  style={{ "--icon-var": "var(--arrow-down__dark)" }}
                   type="button"
                   onClick={() => {
                     handleSetActiveClone(clone.id);

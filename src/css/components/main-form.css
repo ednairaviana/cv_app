@@ -98,6 +98,7 @@
 
 .btn-remove {
   background-color: red;
+  color: white;
   padding: 0.8rem 1rem;
   border-radius: 0.5rem;
   cursor: pointer;
@@ -109,5 +110,13 @@
   padding: 1rem 2rem;
   border-radius: 1rem;
   width: 100%;
+  cursor: pointer;
+}
+
+.main-form__fieldset.cloneable.open .toggle-button {
+  transform: rotateX(180deg);
+}
+
+.toggle-button {
   cursor: pointer;
 }
