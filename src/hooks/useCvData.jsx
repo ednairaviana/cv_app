@@ -34,18 +34,22 @@ function useCvData() {
   }
 
   function handleAddFieldsetClone(path) {
+    const newId = crypto.randomUUID();
+
     setCvData((prev) => {
       const cvClone = structuredClone(prev);
       const currentArray = path.reduce((acc, key) => acc?.[key], cvClone);
 
       const newItem = {
-        id: crypto.randomUUID(),
+        id: newId,
         title: "Untitled",
       };
 
       currentArray.push(newItem);
       return cvClone;
     });
+
+    return newId;
   }
 
   function setByPath(obj, keys, value) {

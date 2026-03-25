@@ -33,12 +33,6 @@
   margin-bottom: 1rem;
 }
 
-.main-form__fieldset-items.cloneable {
-  border: 1px solid var(--color-neutral-600);
-  padding: 1rem;
-  border-radius: 1rem;
-}
-
 .main-form__fieldset-items {
   gap: var(--space-s);
 }
@@ -73,6 +67,27 @@
   font-size: 1rem;
   top: 0.5rem;
   transform: unset;
+}
+
+.main-form__fieldset.cloneable {
+  border: 1px solid var(--color-neutral-600);
+  padding: 1rem;
+  border-radius: 1rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.main-form__fieldset.cloneable:not(.open) .main-form__fieldset-items {
+  display: none;
+}
+
+.main-form__tggl-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
 }
 
 .main-form__clone-div {
