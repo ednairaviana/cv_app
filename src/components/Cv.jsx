@@ -56,14 +56,21 @@ function Dividers({ all_tabs }) {
         </div>
         <p className="cv-divider__tag">
           <span>
-            {tab.start_date} - {tab.end_date}
+            {parseDate(tab.start_date)} - {parseDate(tab.end_date)}
           </span>
-          <span> 1 year, {tab.location}</span>
+          <span>{tab.location}</span>
         </p>
         <p className="cv-divider__description">{tab.description}</p>
       </div>
     );
   });
+}
+
+function parseDate(input) {
+  const [year, month] = input.split("-");
+  const date = new Date(year, month - 1);
+
+  return date.toLocaleString("en-US", { month: "long", year: "numeric" });
 }
 
 export default Cv;
