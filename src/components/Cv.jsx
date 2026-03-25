@@ -18,17 +18,29 @@ function Cv({ cvData }) {
       </div>
 
       <ul className="info-list">
-        <li className="icon--before" dataIcon="email">
+        <li
+          className="icon--before"
+          style={{ "--icon-var": "var(--mail__dark)" }}
+        >
           <span>{contact.email}</span>
         </li>
-        <li className="icon--before">
+        <li
+          className="icon--before"
+          style={{ "--icon-var": "var(--phone__dark)" }}
+        >
           <span>{contact.phone}</span>
         </li>
-        <li className="icon--before">
+        <li
+          className="icon--before"
+          style={{ "--icon-var": "var(--location__dark)" }}
+        >
           <span>{contact.address}</span>
         </li>
-        <li className="icon--before">
-          <span>{social_media.website}</span>
+        <li
+          className="icon--before"
+          style={{ "--icon-var": "var(--github__dark)" }}
+        >
+          <a href={`https://${social_media.github}`}>{social_media.github}</a>
         </li>
       </ul>
 

@@ -104,13 +104,12 @@ function FieldsetCloneable({ fieldset, tabId, cvState }) {
               <div className="main-form__tggl-wrapper">
                 <span>{clone.title}</span>
                 <button
+                  dataIcon="toggle"
                   type="button"
                   onClick={() => {
                     handleSetActiveClone(clone.id);
                   }}
-                >
-                  tggl
-                </button>
+                ></button>
               </div>
               <div className="main-form__fieldset-items">
                 {fieldset.fields.map((field) => (

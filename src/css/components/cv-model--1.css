@@ -44,7 +44,6 @@
 }
 
 .cv-model--1 .info-list .icon--before {
-  --icon-var: var(--phone__dark);
   --icon-gap: var(--space-xs);
   --icon-size: var(--text-s);
 }
