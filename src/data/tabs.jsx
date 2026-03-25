@@ -11,13 +11,13 @@ const tabs = [
             id: "first_name",
             label: "First Name",
             type: "text",
-            default_value: "John",
+            default_value: "Fulano",
           },
           {
             id: "last_name",
             label: "Last Name",
             type: "text",
-            default_value: "Doe",
+            default_value: "Da Silva",
           },
           {
             id: "position",
@@ -42,7 +42,7 @@ const tabs = [
             id: "email",
             label: "Email",
             type: "email",
-            default_value: "john.doe@email.com",
+            default_value: "fulano@email.com",
           },
           {
             id: "phone",
@@ -72,7 +72,7 @@ const tabs = [
             id: "github",
             label: "Github",
             type: "github",
-            default_value: "github.com/johndoe",
+            default_value: "github.com/ednairaviana",
           },
         ],
       },
