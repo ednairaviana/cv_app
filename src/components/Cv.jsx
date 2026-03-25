@@ -67,10 +67,12 @@ function Dividers({ all_tabs }) {
 }
 
 function parseDate(input) {
-  const [year, month] = input.split("-");
-  const date = new Date(year, month - 1);
+  if (input) {
+    const [year, month] = input.split("-");
+    const date = new Date(year, month - 1);
 
-  return date.toLocaleString("en-US", { month: "long", year: "numeric" });
+    return date.toLocaleString("en-US", { month: "long", year: "numeric" });
+  }
 }
 
 export default Cv;
