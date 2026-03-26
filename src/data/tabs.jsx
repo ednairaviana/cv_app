@@ -177,11 +177,7 @@ const tabs = [
     id: "advanced",
     fieldsets: [
       {
-        legend: "Export",
-        fields: [],
-      },
-      {
-        legend: "Styling",
+        legend: "Too lazy to do something else",
         fields: [],
       },
     ],

@@ -1,24 +1,5 @@
 import { useState } from "react";
 
-function Radio({ radioInfo }) {
-  return (
-    <div>
-      <p>{radioInfo.label}</p>
-      {radioInfo.options.map((radio) => (
-        <div key={radio.id}>
-          <input
-            id={radio.id}
-            name={radioInfo.name}
-            value={radio.value}
-            type="radio"
-          />
-          <label htmlFor={radio.id}>{radio.label}</label>
-        </div>
-      ))}
-    </div>
-  );
-}
-
 function Form({ tabs, useActiveTab, cvState }) {
   const activeTab = useActiveTab.activeTab;
 
