@@ -25,7 +25,7 @@ header {
   cursor: pointer;
   display: none;
   position: fixed;
-  left: 5px;
+  left: var(--space-l);
   bottom: 5px;
 
   align-items: center;
