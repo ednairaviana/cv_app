@@ -1,7 +1,7 @@
 .main-form_wrapper {
   height: 100%;
   min-height: fit-content;
-  overflow: hidden;
+  overflow-y: auto;
   background-color: white;
   border-bottom-left-radius: 1rem;
   border-bottom-right-radius: 1rem;
@@ -22,7 +22,6 @@
 
 .main-form__tab {
   min-height: fit-content;
-  overflow-y: auto;
 }
 
 .main-form__tab:not(.active) {
