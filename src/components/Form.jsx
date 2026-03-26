@@ -185,15 +185,27 @@ function FieldWrapper(props) {
   return (
     <div className={`field-wrapper ${isFilled ? "input-filled" : ""}`}>
       <label htmlFor={props.id}>{props.label}</label>
-      <input
-        id={props.id}
-        name={props.id}
-        type={props.type}
-        onChange={(e) => {
-          handleInputChange(e);
-        }}
-        value={value}
-      />
+      {props.type === "textarea" ? (
+        <textarea
+          id={props.id}
+          name={props.id}
+          type={props.type}
+          onChange={(e) => {
+            handleInputChange(e);
+          }}
+          value={value}
+        />
+      ) : (
+        <input
+          id={props.id}
+          name={props.id}
+          type={props.type}
+          onChange={(e) => {
+            handleInputChange(e);
+          }}
+          value={value}
+        />
+      )}
     </div>
   );
 }

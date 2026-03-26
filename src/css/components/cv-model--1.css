@@ -8,6 +8,7 @@
   padding: var(--space-l);
   border-radius: 1rem;
   overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .cv-model--1 .header {
