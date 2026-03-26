@@ -59,10 +59,8 @@
   transform: translateY(-50%);
   padding-left: 1rem;
   background-color: white;
-  border-radius: 2rem;
   transition: all 0.2s ease-in;
   pointer-events: none;
-  z-index: -1;
 }
 
 .main-form_wrapper .field-wrapper input,
